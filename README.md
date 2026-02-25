@@ -78,10 +78,9 @@ source .venv/bin/activate
 
 If you have not set up your local AWS environment yet, follow `Codespaces / AWS env setup` above first.
 
-Configure AWS credentials/profile using the task in `mise.toml`:
+Verify active AWS credentials/profile with the task in `mise.toml`:
 
 ```bash
-mise run aws:configure
 mise run aws:whoami
 ```
 
@@ -157,7 +156,7 @@ Where `<prefix>` is `TF_STATE_PREFIX` if set, otherwise the GitHub repo name (fo
 For local `mise run terraform:init`:
 
 - Init always configures the S3 backend.
-- Defaults are set in `mise.toml` (`TF_STATE_BUCKET=tfstate-llewandowski`, `TF_STATE_PREFIX=terraform-template`, `TF_STATE_ENV=dev`).
+- Defaults are set in `mise.toml` (`TF_STATE_BUCKET=tfstate-llewandowski`, `TF_STATE_PREFIX=terraform-labs`, `TF_STATE_ENV=dev`).
 - Override `TF_STATE_PREFIX` or `TF_STATE_ENV` per workspace/environment as needed.
 
 ### Template bootstrap for new repos
