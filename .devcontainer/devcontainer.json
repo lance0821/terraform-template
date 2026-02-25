@@ -6,7 +6,7 @@
     "ghcr.io/devcontainers/features/common-utils:2": {}
   },
 
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y git-lfs python3 python3-venv && git lfs install && curl -fsSL https://mise.jdx.dev/install.sh | sh && echo 'eval \"$(~/.local/bin/mise activate bash)\"' >> ~/.bashrc && ~/.local/bin/mise trust /workspaces/terraform-template/mise.toml && ~/.local/bin/mise install && mkdir -p .terraform.d/plugin-cache",
+  "postCreateCommand": "bash .devcontainer/scripts/devcontainer-postcreate.sh",
 
   "customizations": {
     "vscode": {

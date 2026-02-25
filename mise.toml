@@ -129,7 +129,7 @@ run = "aws sts get-caller-identity"
 
 [tasks."pre-commit:install"]
 description = "Install pre-commit git hooks"
-run = "bash scripts/install-git-hooks.sh"
+run = "bash .devcontainer/scripts/install-git-hooks.sh"
 
 [tasks."pre-commit:run"]
 description = "Run all pre-commit hooks"
