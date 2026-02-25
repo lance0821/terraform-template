@@ -1,8 +1,28 @@
-## terraform-labs
+## terraform-template
 
 ### Prerequisites
 
 - Install mise: https://mise.jdx.dev/getting-started.html
+
+### Codespaces / AWS env setup
+
+After devcontainer changes, run `Codespaces: Rebuild Container` from the Command Palette.
+
+Create local AWS env values (do not commit `.env`):
+
+```bash
+cp .env.example .env
+```
+
+Authenticate with AWS SSO:
+
+```bash
+aws configure sso --profile dev
+aws sso login --profile dev
+aws sts get-caller-identity --profile dev
+```
+
+`mise.toml` loads `.env` via `_.file = ".env"`, so tasks pick up `AWS_PROFILE`/`AWS_REGION` automatically.
 
 ### One-time shell setup
 
@@ -31,6 +51,8 @@ source ~/.bashrc
 ```
 
 ### AWS commands
+
+If you have not set up your local AWS environment yet, follow `Codespaces / AWS env setup` above first.
 
 Configure AWS credentials/profile using the task in `mise.toml`:
 
@@ -106,12 +128,12 @@ State key path is set by prefix + workflow input environment:
 - `<prefix>/staging/terraform.tfstate`
 - `<prefix>/prod/terraform.tfstate`
 
-Where `<prefix>` is `TF_STATE_PREFIX` if set, otherwise the GitHub repo name (for example `terraform-labs`).
+Where `<prefix>` is `TF_STATE_PREFIX` if set, otherwise the GitHub repo name (for example `terraform-template`).
 
 For local `mise run terraform:init`:
 
 - Init always configures the S3 backend.
-- Defaults are set in `mise.toml` (`TF_STATE_BUCKET=tfstate-llewandowski`, `TF_STATE_PREFIX=terraform-labs`, `TF_STATE_ENV=dev`).
+- Defaults are set in `mise.toml` (`TF_STATE_BUCKET=tfstate-llewandowski`, `TF_STATE_PREFIX=terraform-template`, `TF_STATE_ENV=dev`).
 - Override `TF_STATE_PREFIX` or `TF_STATE_ENV` per workspace/environment as needed.
 
 ### Template bootstrap for new repos
