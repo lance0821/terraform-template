@@ -6,6 +6,10 @@ trivy = "0.69.1"
 gitleaks = "8.30.0"
 terraform-docs = "0.21.0"
 checkov = "3.2.500"
+pre-commit = "4"
+python = "3.12"
+uv = "latest"
+kubectl = "latest"
 
 [env]
 _.file = ".env"
@@ -122,3 +126,15 @@ depends = ["terraform:fmt-check", "terraform:validate-ci", "tflint:run", "tflint
 [tasks."aws:whoami"]
 description = "Show active AWS identity"
 run = "aws sts get-caller-identity"
+
+[tasks."pre-commit:install"]
+description = "Install pre-commit git hooks"
+run = "bash scripts/install-git-hooks.sh"
+
+[tasks."pre-commit:run"]
+description = "Run all pre-commit hooks"
+run = "pre-commit run --all-files"
+
+[tasks."uv:venv"]
+description = "Create local Python virtual environment (.venv)"
+run = "uv venv .venv"

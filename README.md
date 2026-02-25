@@ -42,12 +42,34 @@ mise install
 mise current
 terraform version
 aws --version
+kubectl version --client
 ```
 
 If `terraform` is still not found, open a new terminal and run:
 
 ```bash
 source ~/.bashrc
+```
+
+### Pre-commit hooks
+
+Install git hooks:
+
+```bash
+mise run pre-commit:install
+```
+
+Run hooks manually across all files:
+
+```bash
+mise run pre-commit:run
+```
+
+Optional: create a local Python virtual environment (ignored by git):
+
+```bash
+mise run uv:venv
+source .venv/bin/activate
 ```
 
 ### AWS commands
