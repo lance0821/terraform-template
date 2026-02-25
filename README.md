@@ -59,6 +59,8 @@ Install git hooks:
 mise run pre-commit:install
 ```
 
+This installs a `mise`-backed git hook so commits from VS Code Source Control and terminal both work.
+
 Run hooks manually across all files:
 
 ```bash
