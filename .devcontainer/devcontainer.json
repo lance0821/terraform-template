@@ -6,7 +6,7 @@
     "ghcr.io/devcontainers/features/common-utils:2": {}
   },
 
-  "postCreateCommand": "curl -fsSL https://mise.jdx.dev/install.sh | sh && echo 'eval \"$(~/.local/bin/mise activate bash)\"' >> ~/.bashrc && ~/.local/bin/mise trust /workspaces/terraform-template/mise.toml && ~/.local/bin/mise install && mkdir -p .terraform.d/plugin-cache",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install && curl -fsSL https://mise.jdx.dev/install.sh | sh && echo 'eval \"$(~/.local/bin/mise activate bash)\"' >> ~/.bashrc && ~/.local/bin/mise trust /workspaces/terraform-template/mise.toml && ~/.local/bin/mise install && mkdir -p .terraform.d/plugin-cache",
 
   "customizations": {
     "vscode": {
