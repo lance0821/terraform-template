@@ -29,7 +29,7 @@ jobs:
 
       # mise installs tool versions from mise.toml [tools] — nothing else.
       - name: Setup tools
-        uses: jdx/mise-action@v3.6.1
+        uses: jdx/mise-action@v3.6.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
